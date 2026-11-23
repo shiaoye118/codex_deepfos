@@ -1,0 +1,2 @@
+{"time": "2026-11-13T15:06:42+08:00", "pattern": "debug-cube-save-nan", "summary": "Inspect source DataFrames before cube.save_unpivot and verify NaN propagation through in-place allocation updates"}
+{"time": "2026-11-13T15:46:51+08:00", "pattern": "deepfos-cube-data-chain-save-requery", "summary": "For dependent FinancialCube items, calculate one level, save it, and re-query cube before calculating the next level."}

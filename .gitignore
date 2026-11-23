@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+agent/runtime/
+deepfos-knowledge/cache/

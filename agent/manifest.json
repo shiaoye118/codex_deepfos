@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "tool_version": "1.0.0",
+  "project": {
+    "name": "codex_deepfos",
+    "display_name": "codex_deepfos",
+    "description": "DeepFOS Python SDK, product knowledge, FH code profile, and API reference project."
+  },
+  "adapter": {
+    "name": "deepfos-agent",
+    "path": "agent/bin/deepfos-agent",
+    "contract": "agent/TOOL_SPEC.md",
+    "json_contract": "stable",
+    "default_mode": "read-only"
+  },
+  "skill": {
+    "name": "deepfos-project",
+    "path": "agent/skills/deepfos-project/SKILL.md"
+  },
+  "knowledge": {
+    "root": "deepfos-knowledge",
+    "index": "deepfos-knowledge/deepfos-index.sqlite",
+    "sdk_version": "1.1.94",
+    "usage_log": "deepfos-knowledge/usage-patterns.jsonl"
+  },
+  "environment": {
+    "knowledge_override": "DEEPFOS_KB_ROOT",
+    "sdk_override": "DEEPFOS_SDK_ROOT",
+    "project_override": "DEEPFOS_PROJECT_ROOT"
+  },
+  "permissions": {
+    "network": false,
+    "write": false,
+    "external_services": false,
+    "implicit_business_code_scan": false
+  },
+  "business_code_scope": {
+    "state": "external",
+    "notes": "Business code is external to this project and must only be read after an explicit scope confirmation."
+  },
+  "commands": [
+    {
+      "name": "describe",
+      "mode": "read",
+      "output": "manifest and resolved paths"
+    },
+    {
+      "name": "doctor",
+      "mode": "read",
+      "output": "health checks"
+    },
+    {
+      "name": "docs",
+      "mode": "read",
+      "output": "bounded documentation matches"
+    },
+    {
+      "name": "symbols",
+      "mode": "read",
+      "output": "bounded SDK symbol matches"
+    },
+    {
+      "name": "source",
+      "mode": "read",
+      "output": "bounded source matches"
+    },
+    {
+      "name": "review",
+      "mode": "read",
+      "output": "usage-pattern summary"
+    },
+    {
+      "name": "version",
+      "mode": "read",
+      "output": "local and cached version metadata"
+    }
+  ]
+}

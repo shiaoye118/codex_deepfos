@@ -1,0 +1,8 @@
+---
+description: Portable DeepFOS project operating rules
+alwaysApply: true
+---
+
+Read `AGENTS.md` as the canonical instruction source. Use the project-local CLI in `agent/bin/deepfos-agent` for local documentation, symbol, source, and usage-pattern lookup. The CLI emits a stable JSON envelope and is read-only by default.
+
+Never assume global Codex Skills, `/Users/...`, the current home directory, business-code roots, credentials, or SDK paths exist on another machine. Use `agent/HANDOFF.md` for migration state and environment overrides. Do not modify business code, data, configurations, or external systems without explicit approval for that exact action.

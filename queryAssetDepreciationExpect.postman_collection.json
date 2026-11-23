@@ -1,0 +1,141 @@
+{
+  "info": {
+    "name": "EBS-queryAssetDepreciationExpect",
+    "description": "按 Script/etl/EBS/import_api.py 的 queryAssetDepreciationExpect 调用方式生成。默认无认证；如网关要求登录态，可使用 Bearer Token 请求。",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://fsc-test.dslyy.com"
+    },
+    {
+      "key": "year",
+      "value": "2024"
+    },
+    {
+      "key": "pageNo",
+      "value": "1"
+    },
+    {
+      "key": "pageSize",
+      "value": "1"
+    },
+    {
+      "key": "accessToken",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. 原样调用（无认证）",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pageNo\": {{pageNo}},\n  \"pageSize\": {{pageSize}},\n  \"year\": \"{{year}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ebs/api/budget/queryAssetDepreciationExpect",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "ebs",
+            "api",
+            "budget",
+            "queryAssetDepreciationExpect"
+          ]
+        },
+        "description": "严格对应当前 Python 代码：只传 pageNo、pageSize、year，Header 只有 Content-Type。"
+      }
+    },
+    {
+      "name": "2. 带 companyCode（可选）",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyCode\": \"\",\n  \"pageNo\": {{pageNo}},\n  \"pageSize\": {{pageSize}},\n  \"year\": \"{{year}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ebs/api/budget/queryAssetDepreciationExpect",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "ebs",
+            "api",
+            "budget",
+            "queryAssetDepreciationExpect"
+          ]
+        },
+        "description": "函数注释中出现了 companyCode；如果服务端要求 companyCode，可使用这个请求。"
+      }
+    },
+    {
+      "name": "3. 带 Bearer Token（仅网关要求时）",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{accessToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pageNo\": {{pageNo}},\n  \"pageSize\": {{pageSize}},\n  \"year\": \"{{year}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ebs/api/budget/queryAssetDepreciationExpect",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "ebs",
+            "api",
+            "budget",
+            "queryAssetDepreciationExpect"
+          ]
+        },
+        "description": "仅在 FSC 网关要求 OAuth2 Bearer Token 时使用；当前 import_api.py 没有这段逻辑。"
+      }
+    }
+  ]
+}
